@@ -5,3 +5,4 @@ __pycache__/
 .vscode/
 *.egg-info/
 .comate/
+interview_prep/ai_interview/resume_*.pdf
