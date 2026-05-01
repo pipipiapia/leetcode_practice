@@ -30,11 +30,30 @@ def check_inclusion(s1: str, s2: str) -> bool:
 
     技巧：Python 中用 collections.Counter 便于比较
     用长度为 26 的数组存字符频率，比 Counter 直接比较数组更高效（O(1) 比较）
+
+    易错：代码可能漏掉最后一次比较。
     """
     # ══════════════════════════════════════════════
-    # 请在此处填写你的答案
+    n, m = len(s2), len(s1)
+    target = [0] * 26
+    tmp = [0] * 26
+    for s in s1:
+        target[ord(s)-ord('a')] += 1
+    left= 0
+    for right in range(n):
+
+        tmp[ord(s2[right])-ord('a')] += 1
+
+        if right >= m:
+            tmp[ord(s2[left])-ord('a')] -= 1
+            left += 1
+        if tmp == target:
+            return True
+    return False
+        
+            
     # ══════════════════════════════════════════════
-    cnt1 = Counter(s1)
+    # cnt1 = Counter(s1)
 
 
 
@@ -51,7 +70,7 @@ class TestPermStr(unittest.TestCase):
         self.assertTrue(check_inclusion("a", "a"))
 
     def test_longer(self):
-        self.assertTrue(check_inclusion("abc", "ccccbbbbaaaa"))
+        self.assertFalse(check_inclusion("abc", "ccccbbbbaaaa"))
 
 
 if __name__ == "__main__":

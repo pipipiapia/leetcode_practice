@@ -28,11 +28,20 @@ def remove_duplicates(nums: list[int]) -> int:
     - fast 扫描整个数组
     - 若 nums[fast] != nums[slow]，说明遇到新值，slow++ 并更新 nums[slow]
     - 最终 slow+1 即为新长度
+
+    错误点：fast 负责找下一个可保留元素，slow 负责标记下一个写入位置/已保留区间边界。
     """
     # ══════════════════════════════════════════════
-    # 请在此处填写你的答案
+    slow = 0
+    for fast in range(1, len(nums)):
+        if nums[fast] != nums[slow]:
+            slow += 1
+            nums[slow] = nums[fast]
+        # else:
+        #     nums[fast:]=nums[fast-1:]
+
     # ══════════════════════════════════════════════
-    pass
+    return slow+1
 
 
 # ─────────────────────────────────────────────────

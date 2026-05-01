@@ -32,9 +32,21 @@ def find_max_average(nums: list[int], k: int) -> float:
     时间 O(n)，空间 O(1)
     """
     # ══════════════════════════════════════════════
-    # 请在此处填写你的答案
+    n = len(nums)
+    s_sum = 0
+    ret = 0
+    for right in range(n):
+        s_sum += nums[right]
+        if right == (k-1):
+            ret = s_sum/k
+        elif right >= k:
+            s_sum -= nums[right - k]
+            if s_sum/k >= ret:
+                ret = s_sum/k   
+
+    return ret 
     # ══════════════════════════════════════════════
-    pass
+    # pass
 
 
 # ─────────────────────────────────────────────────

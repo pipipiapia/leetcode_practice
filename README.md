@@ -7,28 +7,60 @@
 ```
 leetcode_practice/
 ├── README.md                          ← 你在这里
-├── PROGRESS.md                        ← 刷题进度追踪
 ├── interview_prep/                    ← 面试准备（算法 + DL/PyTorch）
-│   ├── README.md
 │   ├── leetcode_interview_guide.md    ← LeetCode 高频题型分类总结
 │   └── interview_prep_dl_pytorch.md   ← 深度学习 & PyTorch 核心知识点
 └── problems/
-    ├── 01_array_two_pointers/         ← 数组：双指针、滑动窗口、前缀和、矩阵
-    ├── 02_hash_string/                ← 字符串、哈希表、Trie、KMP
-    ├── 03_linked_list/                ← 链表：反转、合并、环、LRU
-    ├── 04_binary_tree/                ← 二叉树：遍历、构造、BST、序列化
-    ├── 05_dynamic_programming/        ← 动态规划：路径、背包、序列、字符串 DP
-    ├── 06_stack_monotonic/            ← 栈、单调栈
-    ├── 07_backtrack/                  ← 回溯：排列、组合、子集、网格搜索
-    ├── 08_sort_binary_heap/           ← 排序、二分、堆、TopK
-    ├── 09_graph_unionfind/            ← 图、BFS、拓扑排序、并查集
-    ├── 10_greedy_interval/            ← 贪心、区间
+    ├── 01_array_two_pointers/         ← 数组与双指针
+    │   ├── 01_collision/                对撞指针
+    │   ├── 02_fast_slow/                快慢指针
+    │   ├── 03_sliding_window/
+    │   │   ├── 01_fixed/                  固定窗口
+    │   │   └── 02_variable/               可变窗口
+    │   ├── 04_prefix_sum/               前缀和
+    │   ├── 05_matrix/                   矩阵
+    │   └── 06_center_expand/            中心扩展（回文）
+    ├── 02_hash_string/                ← 哈希与字符串
+    │   ├── 01_hash/                     哈希表
+    │   ├── 02_string/                   字符串操作
+    │   └── 03_trie/                     字典树
+    ├── 03_linked_list/                ← 链表
+    │   ├── 01_dummy_head/               虚拟头节点
+    │   ├── 02_reverse/                  反转链表
+    │   ├── 03_fast_slow/                快慢指针
+    │   └── 04_comprehensive/            综合题
+    ├── 04_binary_tree/                ← 二叉树
+    │   ├── 01_traversal/                遍历
+    │   ├── 02_bst/                      二叉搜索树
+    │   ├── 03_construction/             构造/序列化
+    │   └── 04_path_lca/                 路径/最近公共祖先
+    ├── 05_dynamic_programming/         ← 动态规划
+    │   ├── 01_one_dim/                  一维DP
+    │   ├── 02_two_dim/                  二维DP
+    │   └── 03_subsequence/              子序列DP
+    ├── 06_stack_monotonic/            ← 栈与单调栈
+    │   ├── 01_stack/                    普通栈
+    │   └── 02_monotonic/                单调栈
+    ├── 07_backtrack/                  ← 回溯
+    │   ├── 01_combination/              组合
+    │   ├── 02_permutation_subset/       排列/子集
+    │   └── 03_grid_search/              网格搜索
+    ├── 08_sort_binary_heap/           ← 排序、二分与堆
+    │   ├── 01_sort/                     排序
+    │   ├── 02_binary_search/            二分查找
+    │   └── 03_heap/                     堆
+    ├── 09_graph_unionfind/            ← 图与并查集
+    │   ├── 01_bfs_dfs/                  BFS/DFS
+    │   └── 02_topological/              拓扑排序
+    ├── 10_greedy_interval/            ← 贪心与区间
+    │   ├── 01_greedy/                   贪心
+    │   └── 02_interval/                 区间
     └── 03_ai_interview/               ← AI 面试题
-        ├── 01_deep_learning/          ← 深度学习基础
-        ├── 02_pytorch/                ← PyTorch 核心机制
-        ├── 03_recommendation/         ← 推荐系统 / 搜广推
-        ├── 04_coding/                 ← 高频手撕代码
-        └── 05_losses/                 ← Loss 函数专题
+        ├── 01_deep_learning/            深度学习基础
+        ├── 02_pytorch/                  PyTorch 核心机制
+        ├── 03_recommendation/           推荐系统 / 搜广推
+        ├── 04_coding/                   高频手撕代码
+        └── 05_losses/                   Loss 函数专题
 ```
 
 ## 如何刷题

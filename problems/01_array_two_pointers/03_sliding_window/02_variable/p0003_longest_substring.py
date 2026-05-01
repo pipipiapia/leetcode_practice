@@ -53,7 +53,7 @@ def length_of_longest_substring(s: str) -> int:
             continue
         else:
             while s[left] != s[right]:
-                cnt.pop(s[left]) 
+                cnt.pop(s[left]) ## 字典的pop是按照keypop，时间是o（1） ！！！！
                 left += 1
             left+=1
     return max

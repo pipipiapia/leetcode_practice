@@ -28,16 +28,33 @@ def detect_cycle(head: ListNode) -> ListNode:
     2. 找到相遇点后，让一个指针从头出发，另一个留在相遇点，每次都走一步
     3. 再次相遇处即为环入口
 
-    数学证明：
-      设起点到入口距离为 a，环入口到相遇点距离为 b，环剩余长度为 c
-      慢走了 a+b，快走了 a+b+c+b = a+2b+c
-      快=2*慢 → a+2b+c = 2a+2b → c = a
-      即：从相遇点和起点同时出发，相遇点就是入口
+    为什么一定会相遇：
+      慢指针进入环后，快指针已经在环里。
+      快指针每次比慢指针多走 1 步，相当于在环上追慢指针。
+      环长有限，所以最多追一圈就一定相遇。
+
+    为什么从 head 和相遇点同时走会到入口：
+      设 head 到入口距离为 a，相遇点到入口距离为 c，环长为 L。
+      可以推出 a = c + 若干个完整环长，即 a % L == c。
+      所以一个从 head 走 a 步到入口；另一个从相遇点走 a 步，等价于在环里走 c 步，也到入口。
+
+    注意：不是一定有 c == a，而是 c == a % L。若 a 大于环长，仍然成立。
     """
     # ══════════════════════════════════════════════
-    # 请在此处填写你的答案
+    slow, fast = head, head
+
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        if slow is fast:
+            finder = head
+            while finder is not slow:
+                finder = finder.next
+                slow = slow.next
+            return finder
+
+    return None
     # ══════════════════════════════════════════════
-    pass
 
 
 # ─────────────────────────────────────────────────
@@ -46,8 +63,12 @@ class TestDetectCycle(unittest.TestCase):
     def test_with_cycle(self):
         # 3 -> 2 -> 0 -> -4 -> (回头到2)
         node2 = ListNode(2)
-        head = ListNode(3, ListNode(2, ListNode(0, ListNode(-4, node2))))
-        node2.next = head.next  # 环入口是 node2
+        head = ListNode(3, node2)
+        node0 = ListNode(0)
+        node4 = ListNode(-4)
+        node2.next = node0
+        node0.next = node4
+        node4.next = node2  # 环入口是 node2
         self.assertIs(detect_cycle(head), node2)
 
     def test_without_cycle(self):

@@ -40,9 +40,25 @@ def has_cycle(head: ListNode) -> bool:
       快每次进2步，慢每次进1步，相对速度=1，若有环则必然追上
     """
     # ══════════════════════════════════════════════
-    # 请在此处填写你的答案
+    slow, fast = head, head
+    # while slow and fast:
+    #     slow = slow.next
+    #     if fast.next:
+    #         fast = fast.next.next
+    #     else:
+    #         return False
+    #     if slow == fast:slow, fast = head, head
+
+    while fast and fast.next: ### 注意！！！！条件可以写的更简洁
+        slow = slow.next
+        fast = fast.next.next
+        if slow is fast:
+            return True
+
+    return False
+                return True
+        return False
     # ══════════════════════════════════════════════
-    pass
 
 
 # ─────────────────────────────────────────────────

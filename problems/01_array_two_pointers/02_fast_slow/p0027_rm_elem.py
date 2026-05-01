@@ -30,9 +30,14 @@ def remove_element(nums: list[int], val: int) -> int:
     - 最终 slow 即为新长度
     """
     # ══════════════════════════════════════════════
-    # 请在此处填写你的答案
+    slow, fast = 0, 0
+    for fast in range(len(nums)):
+        if nums[fast] != val:
+            nums[slow] = nums[fast]
+            slow += 1
+    return slow
     # ══════════════════════════════════════════════
-    pass
+    
 
 
 # ─────────────────────────────────────────────────

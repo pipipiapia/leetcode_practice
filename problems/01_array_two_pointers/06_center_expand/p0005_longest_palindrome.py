@@ -29,22 +29,6 @@ def longest_palindrome(s: str) -> str:
     比 DP O(n²) 空间更优（O(1) 空间），面试推荐此方法
     """
     # ══════════════════════════════════════════════
-    def expand(left, right):
-        while left >= 0 and right < len(s) and s[left] == s[right]:
-            left -= 1
-            right += 1
-        return s[left + 1: right]  # 扩展停止时 left/right 已越界，回退一步
-
-    result = ""
-    for i in range(len(s)):
-        odd = expand(i, i)          # 奇数长度
-        even = expand(i, i + 1)     # 偶数长度
-        if len(odd) > len(result):
-            result = odd
-        if len(even) > len(result):
-            result = even
-
-    return result
     # ══════════════════════════════════════════════
 
 
