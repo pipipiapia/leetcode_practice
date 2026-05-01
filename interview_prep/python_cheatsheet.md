@@ -279,10 +279,62 @@ int_digits = [int(d) for d in str(n)]  # [1,2,3]
 
 # 矩阵初始化
 matrix = [[0]*n for _ in range(m)]   # m行n列，正确！
-# 错误写法：[[0]*n]*m  → 所有行是同一个引用！
+# 错误写法：[[0]*n]*m  → 所有行是同一个引用！改一行全变！
+
+# 矩阵基础操作（矩阵 = list 的 list，没有 .size()，用 len()）
+rows = len(matrix)          # 行数
+cols = len(matrix[0])       # 列数
+matrix[i][j]                # 访问第i行第j列
+matrix[i]                   # 取第i行（引用，改它原矩阵也变）
+[row[j] for row in matrix]  # 取第j列（没有直接语法）
+
+# 矩阵旋转（核心：转置 + 翻转的组合）
+# 顺时针90° = 转置 + 每行左右翻转
+# 逆时针90° = 每行翻转 + 转置（或转置 + 上下翻转）
+# 180° = 上下翻转 + 左右翻转
 ```
 
-## 17. 面试易错陷阱
+## 17. 迭代器与 yield
+
+```python
+# ── 迭代器 ──
+# 实现 __iter__ + __next__ 的对象，惰性求值，不存储数据
+# 核心特点：按需生产，用一次少一次，耗尽后为空
+
+r = reversed([1, 2, 3])   # 返回迭代器，不复制数据
+list(r)                    # [3, 2, 1]  消耗掉了
+list(r)                    # []         已空，不能重复用
+
+# for 循环底层就是迭代器协议：iter() 拿迭代器，反复 __next__() 直到 StopIteration
+# range, dict, 文件对象, zip, enumerate 等都走这套协议
+
+# ── yield（生成器函数）──
+# yield 是写迭代器最便捷的方式，函数里有 yield 就自动变成迭代器
+# yield = 生产端，定义怎么一个一个给值
+# for  = 消费端，遍历已有的值
+
+def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        yield a           # 算出一个就交出去，暂停，下次从这里继续
+        a, b = b, a + b
+
+for x in fib(10):         # 和遍历列表用法一样，但省内存
+    print(x)
+
+# ── 原地操作 vs 非原地 ──
+# 原地操作（修改原数据，返回 None，不能赋值）：
+lst.reverse()              # 原地翻转，返回 None
+lst.sort()                 # 原地排序，返回 None
+# 错误：lst = lst.reverse()  → lst 变成 None！
+
+# 非原地操作（返回新对象）：
+lst[::-1]                  # 返回新列表
+reversed(lst)              # 返回迭代器
+sorted(lst)                # 返回新列表
+```
+
+## 18. 面试易错陷阱
 
 ```python
 # 1. list的*复制是浅拷贝
