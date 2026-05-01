@@ -13,15 +13,15 @@ leetcode_practice/
 │   ├── leetcode_interview_guide.md    ← LeetCode 高频题型分类总结
 │   └── interview_prep_dl_pytorch.md   ← 深度学习 & PyTorch 核心知识点
 └── problems/
-    ├── 01_array_two_pointers/         ← 数组、双指针、滑动窗口
-    ├── 02_linked_list/                ← 链表
-    ├── 03_binary_tree/                ← 二叉树
-    ├── 04_dynamic_programming/        ← 动态规划
-    ├── 05_backtrack/                  ← 回溯
+    ├── 01_array_two_pointers/         ← 数组：双指针、滑动窗口、前缀和、矩阵
+    ├── 02_hash_string/                ← 字符串、哈希表、Trie、KMP
+    ├── 03_linked_list/                ← 链表：反转、合并、环、LRU
+    ├── 04_binary_tree/                ← 二叉树：遍历、构造、BST、序列化
+    ├── 05_dynamic_programming/        ← 动态规划：路径、背包、序列、字符串 DP
     ├── 06_stack_monotonic/            ← 栈、单调栈
-    ├── 07_sort_binary_heap/           ← 排序、二分、堆
-    ├── 08_hash_string/                ← 哈希表、字符串
-    ├── 09_graph_unionfind/            ← 图、并查集
+    ├── 07_backtrack/                  ← 回溯：排列、组合、子集、网格搜索
+    ├── 08_sort_binary_heap/           ← 排序、二分、堆、TopK
+    ├── 09_graph_unionfind/            ← 图、BFS、拓扑排序、并查集
     ├── 10_greedy_interval/            ← 贪心、区间
     └── 03_ai_interview/               ← AI 面试题
         ├── 01_deep_learning/          ← 深度学习基础
@@ -61,8 +61,8 @@ def solve(nums):
 ### 第三步：跑通所有测试
 
 ```bash
-cd problems/01_array_sliding_window
-python -m unittest p0001_two_sum  # 运行单题
+cd problems/01_array_two_pointers/03_sliding_window/02_variable
+python p0001_two_sum.py  # 运行单题
 
 # 或直接运行
 python p0001_two_sum.py
