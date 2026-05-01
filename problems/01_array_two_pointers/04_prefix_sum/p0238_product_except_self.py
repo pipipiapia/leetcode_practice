@@ -36,26 +36,9 @@ def product_except_self(nums: list[int]) -> list[int]:
       第一次正向遍历：answer[i] = 左侧乘积（复用 answer 数组）
       第二次反向遍历：answer[i] *= 右侧乘积（用一个变量 R 滚动）
     """
-    # ══════════════════════════════════════════════
-    n = len(nums)
-    answer = [1] * n
-
-    # 第一次：answer[i] = nums[0..i-1] 的乘积
-    prefix = 1
-    for i in range(n):
-        answer[i] = prefix
-        prefix *= nums[i]
-
-    # 第二次：answer[i] *= nums[i+1..n-1] 的乘积
-    suffix = 1
-    for i in range(n - 1, -1, -1):
-        answer[i] *= suffix
-        suffix *= nums[i]
-
-    return answer
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestProductExceptSelf(unittest.TestCase):
 

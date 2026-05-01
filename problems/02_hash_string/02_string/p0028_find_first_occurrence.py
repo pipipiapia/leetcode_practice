@@ -30,37 +30,9 @@ def str_str(haystack: str, needle: str) -> int:
 
     这里实现 KMP，但面试中能清晰讲出思路即可，暴力也不扣分。
     """
-    # ══════════════════════════════════════════════
-    if not needle:
-        return 0
-    m, n = len(haystack), len(needle)
-    if n > m:
-        return -1
-
-    # 构建 next 数组（needle 的最长公共前后缀长度）
-    next_arr = [0] * n
-    j = 0
-    for i in range(1, n):
-        while j > 0 and needle[i] != needle[j]:
-            j = next_arr[j - 1]
-        if needle[i] == needle[j]:
-            j += 1
-        next_arr[i] = j
-
-    # KMP 匹配
-    j = 0
-    for i in range(m):
-        while j > 0 and haystack[i] != needle[j]:
-            j = next_arr[j - 1]
-        if haystack[i] == needle[j]:
-            j += 1
-        if j == n:
-            return i - n + 1
-
-    return -1
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestStrStr(unittest.TestCase):
 

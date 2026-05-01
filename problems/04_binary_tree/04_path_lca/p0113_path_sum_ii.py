@@ -35,25 +35,9 @@ def path_sum(root: Optional[TreeNode], targetSum: int) -> list[list[int]]:
     - 到达叶子节点时，若 curr_sum == targetSum，加入结果
     - 回溯：递归返回后弹出 path 中的最后一个元素
     """
-    # ══════════════════════════════════════════════
-    result = []
-
-    def dfs(node, remaining, path):
-        if not node:
-            return
-        path.append(node.val)
-        remaining -= node.val
-        if not node.left and not node.right and remaining == 0:
-            result.append(list(path))   # 注意：要拷贝一份
-        dfs(node.left, remaining, path)
-        dfs(node.right, remaining, path)
-        path.pop()  # 回溯
-
-    dfs(root, targetSum, [])
-    return result
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 def build(vals, i=0):
     if i >= len(vals) or vals[i] is None:

@@ -36,38 +36,9 @@ class Codec:
     """
 
     def serialize(self, root: Optional[TreeNode]) -> str:
-        # ══════════════════════════════════════════════
-        tokens = []
-
-        def dfs(node):
-            if not node:
-                tokens.append("N")
-                return
-            tokens.append(str(node.val))
-            dfs(node.left)
-            dfs(node.right)
-
-        dfs(root)
-        return ",".join(tokens)
-        # ══════════════════════════════════════════════
-
-    def deserialize(self, data: str) -> Optional[TreeNode]:
-        # ══════════════════════════════════════════════
-        tokens = deque(data.split(","))
-
-        def dfs():
-            val = tokens.popleft()
-            if val == "N":
-                return None
-            node = TreeNode(int(val))
-            node.left = dfs()
-            node.right = dfs()
-            return node
-
-        return dfs()
-        # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestCodec(unittest.TestCase):
 

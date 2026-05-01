@@ -34,31 +34,9 @@ def three_sum(nums: list[int]) -> list[list[int]]:
 
     关键点：为什么要先排序？去重的逻辑是什么？
     """
-    # ══════════════════════════════════════════════
-    # 请在此处填写你的答案
-    # ══════════════════════════════════════════════
-    nums = sorted(nums)
-    lenth = len(nums)
-    rets = []
-    for i in range(lenth):
-        if i > 0:
-            if nums[i] == nums[i-1]:
-                continue
-        left = i + 1
-        right = lenth - 1
-        while left < right:
-            if (nums[left] + nums[right]) == -nums[i]:
-                rets.append([nums[i], nums[left], nums[right]])
-                left += 1
-                right -= 1
-            elif (nums[left] + nums[right]) < -nums[i]:
-                left += 1
-            else:
-                right -= 1
-    return rets
-
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestThreeSum(unittest.TestCase):
 

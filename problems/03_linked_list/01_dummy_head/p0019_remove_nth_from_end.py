@@ -35,24 +35,9 @@ def remove_nth_from_end(head: Optional[ListNode], n: int) -> Optional[ListNode]:
 
     关键：用 dummy 哨兵处理删除头节点的边界情况
     """
-    # ══════════════════════════════════════════════
-    dummy = ListNode(0)
-    dummy.next = head
-    fast = slow = dummy
-
-    # fast 先走 n+1 步（让 slow 停在待删节点的前一个）
-    for _ in range(n + 1):
-        fast = fast.next
-
-    while fast:
-        fast = fast.next
-        slow = slow.next
-
-    slow.next = slow.next.next
-    return dummy.next
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 def list_to_nodes(vals):
     dummy = ListNode(0)

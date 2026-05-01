@@ -40,26 +40,9 @@ def reverse_between(head: Optional[ListNode], left: int, right: int) -> Optional
       step1: dummy -> 1 -> [3 -> 2] -> 4 -> 5
       step2: dummy -> 1 -> [4 -> 3 -> 2] -> 5
     """
-    # ══════════════════════════════════════════════
-    dummy = ListNode(0)
-    dummy.next = head
-    pre = dummy
-
-    # 走到 left 前一个节点
-    for _ in range(left - 1):
-        pre = pre.next
-
-    curr = pre.next
-    for _ in range(right - left):
-        nxt = curr.next
-        curr.next = nxt.next
-        nxt.next = pre.next
-        pre.next = nxt
-
-    return dummy.next
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 def list_to_nodes(vals):
     dummy = ListNode(0)

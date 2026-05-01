@@ -28,15 +28,9 @@ def max_profit(prices: list[int]) -> int:
 
     本质：每段连续上涨都完整捕获
     """
-    # ══════════════════════════════════════════════
-    profit = 0
-    for i in range(1, len(prices)):
-        if prices[i] > prices[i - 1]:
-            profit += prices[i] - prices[i - 1]
-    return profit
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestMaxProfit(unittest.TestCase):
 

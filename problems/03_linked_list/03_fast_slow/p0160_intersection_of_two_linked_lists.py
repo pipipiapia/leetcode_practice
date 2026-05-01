@@ -34,15 +34,9 @@ def get_intersection_node(headA: ListNode, headB: ListNode) -> Optional[ListNode
       pA 路径：a + (b-c) = a + b - c
       pB 路径：b + (a-c) = a + b - c  → 同时到达交点
     """
-    # ══════════════════════════════════════════════
-    pA, pB = headA, headB
-    while pA is not pB:
-        pA = pA.next if pA else headB
-        pB = pB.next if pB else headA
-    return pA
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestGetIntersectionNode(unittest.TestCase):
 

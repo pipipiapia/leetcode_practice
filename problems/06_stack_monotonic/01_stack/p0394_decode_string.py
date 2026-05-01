@@ -29,28 +29,9 @@ def decode_string(s: str) -> str:
     - 遇到 ']'：弹出栈顶 (prev_num, prev_str)，curr_str = prev_str + prev_num * curr_str
     - 遇到字母：拼接到 curr_str
     """
-    # ══════════════════════════════════════════════
-    stack = []
-    curr_str = ""
-    num = 0
-
-    for ch in s:
-        if ch.isdigit():
-            num = num * 10 + int(ch)    # 处理多位数
-        elif ch == '[':
-            stack.append((num, curr_str))
-            num = 0
-            curr_str = ""
-        elif ch == ']':
-            repeat, prev_str = stack.pop()
-            curr_str = prev_str + repeat * curr_str
-        else:
-            curr_str += ch
-
-    return curr_str
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestDecodeString(unittest.TestCase):
 

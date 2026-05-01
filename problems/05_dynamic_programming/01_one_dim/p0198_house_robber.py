@@ -27,22 +27,9 @@ def rob(nums: list[int]) -> int:
 
     空间优化：只需维护 prev2 和 prev1 两个变量
     """
-    # ══════════════════════════════════════════════
-    if not nums:
-        return 0
-    if len(nums) == 1:
-        return nums[0]
-
-    prev2, prev1 = 0, 0
-    for num in nums:
-        curr = max(prev1, prev2 + num)
-        prev2 = prev1
-        prev1 = curr
-
-    return prev1
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestRob(unittest.TestCase):
 

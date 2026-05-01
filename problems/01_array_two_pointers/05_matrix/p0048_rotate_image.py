@@ -36,20 +36,9 @@ def rotate(matrix: list[list[int]]) -> None:
       原位置 (i, j) → 旋转后 → (j, n-1-i)
       先转置 (i,j)→(j,i)，再左右翻转 (j,i)→(j,n-1-i) ✓
     """
-    # ══════════════════════════════════════════════
-    n = len(matrix)
-
-    # 步骤 1：沿主对角线转置
-    for i in range(n):
-        for j in range(i + 1, n):
-            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
-
-    # 步骤 2：每行左右翻转
-    for row in matrix:
-        row.reverse()
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestRotate(unittest.TestCase):
 

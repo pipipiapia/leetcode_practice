@@ -40,22 +40,9 @@ def longest_common_subsequence(text1: str, text2: str) -> int:
     关键点：为什么"末尾不同"时是 max(左, 上) 而不是左上+0？
     """
 
-    # ══════════════════════════════════════════════
-    # 请在此处填写你的答案
-    # ══════════════════════════════════════════════
-    len1, len2 = len(text1), len(text2)
-    dp = [[0]*(len2+1) for _ in range(len1+1)] ####行数 = len1+1，列数 = len2+1!!!写反犯错！！！
-    for i in range(1, len1+1):
-        for j in range(1, len2+1):
-            # print(i, j)
-            if text1[i-1] == text2[j-1]:
-                dp[i][j] = dp[i-1][j-1]+1
-            else:
-                dp[i][j] = max(dp[i-1][j], dp[i][j-1])
-    # print(dp)
-    return dp[len1][len2]
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestLCS(unittest.TestCase):
 

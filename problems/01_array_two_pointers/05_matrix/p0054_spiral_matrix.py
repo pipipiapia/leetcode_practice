@@ -31,38 +31,9 @@ def spiral_order(matrix: list[list[int]]) -> list[int]:
 
     终止条件：top > bottom 或 left > right
     """
-    # ══════════════════════════════════════════════
-    result = []
-    top, bottom = 0, len(matrix) - 1
-    left, right = 0, len(matrix[0]) - 1
-
-    while top <= bottom and left <= right:
-        # → 向右
-        for col in range(left, right + 1):
-            result.append(matrix[top][col])
-        top += 1
-
-        # ↓ 向下
-        for row in range(top, bottom + 1):
-            result.append(matrix[row][right])
-        right -= 1
-
-        # ← 向左（注意：top 已收缩，要判断 top <= bottom）
-        if top <= bottom:
-            for col in range(right, left - 1, -1):
-                result.append(matrix[bottom][col])
-            bottom -= 1
-
-        # ↑ 向上（注意：right 已收缩，要判断 left <= right）
-        if left <= right:
-            for row in range(bottom, top - 1, -1):
-                result.append(matrix[row][left])
-            left += 1
-
-    return result
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestSpiralOrder(unittest.TestCase):
 

@@ -30,21 +30,9 @@ def daily_temperatures(temperatures: list[int]) -> list[int]:
 
     单调栈存储"还没找到答案的天"的下标，当遇到更高温度时结算
     """
-    # ══════════════════════════════════════════════
-    n = len(temperatures)
-    answer = [0] * n
-    stack = []  # 单调递减栈，存下标
-
-    for i, temp in enumerate(temperatures):
-        while stack and temperatures[stack[-1]] < temp:
-            j = stack.pop()
-            answer[j] = i - j
-        stack.append(i)
-
-    return answer
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestDailyTemperatures(unittest.TestCase):
 

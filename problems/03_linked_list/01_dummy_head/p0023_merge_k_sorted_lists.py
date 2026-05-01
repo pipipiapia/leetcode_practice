@@ -44,27 +44,9 @@ def merge_k_lists(lists: list[Optional[ListNode]]) -> Optional[ListNode]:
     时间 O(N log k)：每个节点入堆/出堆各一次，每次操作 O(log k)
     空间 O(k)：堆中最多 k 个节点
     """
-    # ══════════════════════════════════════════════
-    dummy = ListNode(0)
-    curr = dummy
-    heap = []
-
-    # 初始化堆
-    for node in lists:
-        if node:
-            heapq.heappush(heap, node)
-
-    while heap:
-        node = heapq.heappop(heap)
-        curr.next = node
-        curr = curr.next
-        if node.next:
-            heapq.heappush(heap, node.next)
-
-    return dummy.next
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 def list_to_nodes(vals):
     dummy = ListNode(0)

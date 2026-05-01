@@ -30,26 +30,9 @@ def combination_sum(candidates: list[int], target: int) -> list[list[int]]:
 
     排序后可以提前剪枝（当 candidates[i] > remaining 时后面都不用看）
     """
-    # ══════════════════════════════════════════════
-    result = []
-    candidates.sort()
-
-    def backtrack(start, path, remaining):
-        if remaining == 0:
-            result.append(list(path))
-            return
-        for i in range(start, len(candidates)):
-            if candidates[i] > remaining:
-                break                           # 剪枝
-            path.append(candidates[i])
-            backtrack(i, path, remaining - candidates[i])  # i 不 +1，可重复选
-            path.pop()
-
-    backtrack(0, [], target)
-    return result
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestCombinationSum(unittest.TestCase):
 

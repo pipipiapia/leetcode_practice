@@ -26,21 +26,9 @@ def subsets(nums: list[int]) -> list[list[int]]:
     - 每次递归时都将当前 path 加入结果（不像组合，每个节点都是合法子集）
     - 从 start 开始，避免重复
     """
-    # ══════════════════════════════════════════════
-    result = []
-
-    def backtrack(start, path):
-        result.append(list(path))
-        for i in range(start, len(nums)):
-            path.append(nums[i])
-            backtrack(i + 1, path)
-            path.pop()
-
-    backtrack(0, [])
-    return result
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestSubsets(unittest.TestCase):
 

@@ -28,23 +28,9 @@ def erase_overlap_intervals(intervals: list[list[int]]) -> int:
 
     贪心正确性：总选结束最早的不重叠区间，能最大化保留数量
     """
-    # ══════════════════════════════════════════════
-    if not intervals:
-        return 0
-
-    intervals.sort(key=lambda x: x[1])  # 按结束时间排序
-    keep = 1
-    end = intervals[0][1]
-
-    for start, e in intervals[1:]:
-        if start >= end:    # 不重叠，可以保留
-            keep += 1
-            end = e
-
-    return len(intervals) - keep
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestEraseOverlapIntervals(unittest.TestCase):
 

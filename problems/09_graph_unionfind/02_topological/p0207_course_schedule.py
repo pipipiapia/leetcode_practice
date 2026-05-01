@@ -33,29 +33,9 @@ def can_finish(numCourses: int, prerequisites: list[list[int]]) -> bool:
 
     有向图有环 ⟺ 拓扑排序无法处理所有节点
     """
-    # ══════════════════════════════════════════════
-    graph = [[] for _ in range(numCourses)]
-    in_degree = [0] * numCourses
-
-    for a, b in prerequisites:
-        graph[b].append(a)      # b → a（先修 b 才能选 a）
-        in_degree[a] += 1
-
-    queue = deque(i for i in range(numCourses) if in_degree[i] == 0)
-    completed = 0
-
-    while queue:
-        course = queue.popleft()
-        completed += 1
-        for nxt in graph[course]:
-            in_degree[nxt] -= 1
-            if in_degree[nxt] == 0:
-                queue.append(nxt)
-
-    return completed == numCourses
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestCanFinish(unittest.TestCase):
 

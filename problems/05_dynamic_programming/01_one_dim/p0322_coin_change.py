@@ -43,23 +43,9 @@ def coin_change(coins: list[int], amount: int) -> int:
     关键点：为什么 dp 数组要初始化为 inf？dp[0] = 0 的含义？
     """
 
-    # ══════════════════════════════════════════════
-    # 请在此处填写你的答案
-    # ══════════════════════════════════════════════
-    dp = [float('inf')]* (amount + 1)
-    dp[0] = 0
-    for i in range(1, amount + 1):
-        for coin in coins:
-            if i-coin >= 0:
-              dp[i] = min(dp[i-coin]+1, dp[i])
-
-    if dp[amount] != float('inf'):
-      return dp[amount]
-    else:
-      return -1
-
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestCoinChange(unittest.TestCase):
 

@@ -41,23 +41,9 @@ def flatten(root: Optional[TreeNode]) -> None:
     4. curr.left = None
     5. curr = curr.right（前进）
     """
-    # ══════════════════════════════════════════════
-    curr = root
-    while curr:
-        if curr.left:
-            # 找左子树的最右节点
-            rightmost = curr.left
-            while rightmost.right:
-                rightmost = rightmost.right
-            # 将原右子树接到左子树最右边
-            rightmost.right = curr.right
-            # 左子树移到右边
-            curr.right = curr.left
-            curr.left = None
-        curr = curr.right
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 def nodes_to_list(root):
     result = []

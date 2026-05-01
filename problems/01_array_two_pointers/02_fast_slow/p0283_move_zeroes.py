@@ -27,19 +27,9 @@ def move_zeroes(nums: list[int]) -> None:
     - fast 遍历数组，遇到非零元素则放到 slow 位置，slow 前进
     - 最后把 slow 到末尾全部填 0
     """
-    # ══════════════════════════════════════════════
-    slow = 0
-    for fast in range(len(nums)):
-        if nums[fast] != 0:
-            nums[slow] = nums[fast]
-            slow += 1
-
-    # 剩余位置填 0
-    for i in range(slow, len(nums)):
-        nums[i] = 0
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestMoveZeroes(unittest.TestCase):
 

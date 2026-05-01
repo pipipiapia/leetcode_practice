@@ -30,38 +30,9 @@ def set_zeroes(matrix: list[list[int]]) -> None:
 
     注意：先处理内部，再处理第一行和第一列（否则会互相影响）
     """
-    # ══════════════════════════════════════════════
-    m, n = len(matrix), len(matrix[0])
-
-    # 记录第一行/列是否本身有 0
-    first_row_zero = any(matrix[0][j] == 0 for j in range(n))
-    first_col_zero = any(matrix[i][0] == 0 for i in range(m))
-
-    # 用第一行、第一列记录其余位置是否含 0
-    for i in range(1, m):
-        for j in range(1, n):
-            if matrix[i][j] == 0:
-                matrix[i][0] = 0
-                matrix[0][j] = 0
-
-    # 根据标记置零（跳过第一行和第一列）
-    for i in range(1, m):
-        for j in range(1, n):
-            if matrix[i][0] == 0 or matrix[0][j] == 0:
-                matrix[i][j] = 0
-
-    # 处理第一行
-    if first_row_zero:
-        for j in range(n):
-            matrix[0][j] = 0
-
-    # 处理第一列
-    if first_col_zero:
-        for i in range(m):
-            matrix[i][0] = 0
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestSetZeroes(unittest.TestCase):
 

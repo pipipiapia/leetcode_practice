@@ -32,36 +32,9 @@ def search_range(nums: list[int], target: int) -> list[int]:
       - nums[mid] <= target → left = mid + 1（继续往右找）
       - nums[mid] > target  → right = mid - 1
     """
-    # ══════════════════════════════════════════════
-    def find_left(target):
-        left, right = 0, len(nums) - 1
-        while left <= right:
-            mid = (left + right) // 2
-            if nums[mid] < target:
-                left = mid + 1
-            else:
-                right = mid - 1
-        return left  # left 是第一个 >= target 的位置
-
-    def find_right(target):
-        left, right = 0, len(nums) - 1
-        while left <= right:
-            mid = (left + right) // 2
-            if nums[mid] <= target:
-                left = mid + 1
-            else:
-                right = mid - 1
-        return right  # right 是最后一个 <= target 的位置
-
-    left = find_left(target)
-    right = find_right(target)
-
-    if left <= right and right < len(nums) and nums[left] == target:
-        return [left, right]
-    return [-1, -1]
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestSearchRange(unittest.TestCase):
 

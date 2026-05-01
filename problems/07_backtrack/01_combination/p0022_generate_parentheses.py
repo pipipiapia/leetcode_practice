@@ -28,27 +28,9 @@ def generate_parenthesis(n: int) -> list[str]:
 
     剪枝：close >= open 时不能放右括号（无效路径）
     """
-    # ══════════════════════════════════════════════
-    result = []
-
-    def backtrack(path, open_count, close_count):
-        if len(path) == 2 * n:
-            result.append("".join(path))
-            return
-        if open_count < n:
-            path.append("(")
-            backtrack(path, open_count + 1, close_count)
-            path.pop()
-        if close_count < open_count:
-            path.append(")")
-            backtrack(path, open_count, close_count + 1)
-            path.pop()
-
-    backtrack([], 0, 0)
-    return result
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestGenerateParenthesis(unittest.TestCase):
 

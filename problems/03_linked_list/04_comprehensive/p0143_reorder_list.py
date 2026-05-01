@@ -40,41 +40,9 @@ def reorder_list(head: Optional[ListNode]) -> None:
       反转后半：[5->4]
       合并：1->5->2->4->3
     """
-    # ══════════════════════════════════════════════
-    if not head or not head.next:
-        return
-
-    # 步骤 1：快慢指针找中点
-    slow, fast = head, head
-    while fast.next and fast.next.next:
-        slow = slow.next
-        fast = fast.next.next
-    # slow 是前半段末尾，断开
-    second = slow.next
-    slow.next = None
-
-    # 步骤 2：反转后半段
-    prev = None
-    curr = second
-    while curr:
-        nxt = curr.next
-        curr.next = prev
-        prev = curr
-        curr = nxt
-    second = prev  # 反转后的头节点
-
-    # 步骤 3：交叉合并
-    first = head
-    while second:
-        tmp1 = first.next
-        tmp2 = second.next
-        first.next = second
-        second.next = tmp1
-        first = tmp1
-        second = tmp2
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 def list_to_nodes(vals):
     dummy = ListNode(0)

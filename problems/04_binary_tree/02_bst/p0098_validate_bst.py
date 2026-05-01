@@ -38,19 +38,9 @@ def is_valid_bst(root: Optional[TreeNode]) -> bool:
     注意：不能只比较父子节点，必须用上下界传递（经典陷阱题）
     错误示例：[5,4,6,null,null,3,7] → 3 < 5 但在右子树，不合法
     """
-    # ══════════════════════════════════════════════
-    def validate(node, low, high):
-        if not node:
-            return True
-        if node.val <= low or node.val >= high:
-            return False
-        return (validate(node.left, low, node.val) and
-                validate(node.right, node.val, high))
-
-    return validate(root, float('-inf'), float('inf'))
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestIsValidBST(unittest.TestCase):
 

@@ -36,13 +36,9 @@ def top_k_frequent(nums: list[int], k: int) -> list[int]:
 
     这里用方法一（更通用，面试常考）
     """
-    # ══════════════════════════════════════════════
-    count = Counter(nums)
-    # heapq.nlargest 内部用堆实现，O(n log k)
-    return heapq.nlargest(k, count.keys(), key=lambda x: count[x])
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestTopKFrequent(unittest.TestCase):
 

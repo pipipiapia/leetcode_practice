@@ -39,22 +39,9 @@ def subarray_sum(nums: list[int], k: int) -> int:
 
     关键：哈希表初始化 {0: 1}，处理从头开始的子数组（prefix=0 时 curr-k==0）
     """
-    # ══════════════════════════════════════════════
-    count = 0
-    curr = 0
-    prefix_count = defaultdict(int)
-    prefix_count[0] = 1  # 前缀和为 0 出现 1 次（空数组）
-
-    for num in nums:
-        curr += num
-        # 若 curr - k 在哈希表中，说明有 prefix_count[curr-k] 个子数组和为 k
-        count += prefix_count[curr - k]
-        prefix_count[curr] += 1
-
-    return count
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestSubarraySum(unittest.TestCase):
 

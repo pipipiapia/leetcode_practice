@@ -27,15 +27,9 @@ def group_anagrams(strs: list[str]) -> list[list[str]]:
 
     时间 O(n * k log k)：n 个字符串，每个长 k，排序 O(k log k)
     """
-    # ══════════════════════════════════════════════
-    groups = defaultdict(list)
-    for s in strs:
-        key = tuple(sorted(s))  # 排序后作为 key
-        groups[key].append(s)
-    return list(groups.values())
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestGroupAnagrams(unittest.TestCase):
 

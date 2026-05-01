@@ -27,16 +27,9 @@ def can_jump(nums: list[int]) -> bool:
     - 否则更新 max_reach = max(max_reach, i + nums[i])
     - 若 max_reach >= n-1，提前返回 True
     """
-    # ══════════════════════════════════════════════
-    max_reach = 0
-    for i, jump in enumerate(nums):
-        if i > max_reach:
-            return False
-        max_reach = max(max_reach, i + jump)
-    return True
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestCanJump(unittest.TestCase):
 

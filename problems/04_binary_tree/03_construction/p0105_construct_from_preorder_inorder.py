@@ -46,24 +46,9 @@ def build_tree(preorder: list[int], inorder: list[int]) -> Optional[TreeNode]:
 
     优化：用哈希表记录 inorder 中每个值的索引，避免每次 O(n) 查找
     """
-    # ══════════════════════════════════════════════
-    idx_map = {val: i for i, val in enumerate(inorder)}
-
-    def helper(pre_left, pre_right, in_left, in_right):
-        if pre_left > pre_right:
-            return None
-        root_val = preorder[pre_left]
-        root = TreeNode(root_val)
-        idx = idx_map[root_val]
-        left_size = idx - in_left
-        root.left = helper(pre_left + 1, pre_left + left_size, in_left, idx - 1)
-        root.right = helper(pre_left + left_size + 1, pre_right, idx + 1, in_right)
-        return root
-
-    return helper(0, len(preorder) - 1, 0, len(inorder) - 1)
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 def tree_to_list(root):
     """层序遍历输出（None 表示空节点）"""

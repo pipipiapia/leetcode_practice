@@ -32,18 +32,9 @@ def majority_element(nums: list[int]) -> int:
 
     直觉：相同的票互相抵消，最后剩下的一定是多数元素
     """
-    # ══════════════════════════════════════════════
-    candidate, count = None, 0
-
-    for num in nums:
-        if count == 0:
-            candidate = num
-        count += 1 if num == candidate else -1
-
-    return candidate
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestMajorityElement(unittest.TestCase):
 

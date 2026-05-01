@@ -38,27 +38,9 @@ def right_side_view(root: Optional[TreeNode]) -> list[int]:
     BFS 层序遍历：每层的最后一个节点即为右视图可见节点
     - 遍历每一层，取最后一个节点加入结果
     """
-    # ══════════════════════════════════════════════
-    if not root:
-        return []
-    result = []
-    queue = deque([root])
-
-    while queue:
-        level_size = len(queue)
-        for i in range(level_size):
-            node = queue.popleft()
-            if i == level_size - 1:     # 每层最后一个节点
-                result.append(node.val)
-            if node.left:
-                queue.append(node.left)
-            if node.right:
-                queue.append(node.right)
-
-    return result
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestRightSideView(unittest.TestCase):
 

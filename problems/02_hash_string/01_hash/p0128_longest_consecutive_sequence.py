@@ -33,23 +33,9 @@ def longest_consecutive(nums: list[int]) -> int:
     关键优化：若 num-1 在 set 中，说明当前 num 不是序列起点，跳过，
     这样保证每个序列只从起点遍历一次，总体 O(n)
     """
-    # ══════════════════════════════════════════════
-    num_set = set(nums)
-    max_len = 0
-
-    for num in num_set:
-        if num - 1 not in num_set:  # num 是序列起点
-            curr = num
-            length = 1
-            while curr + 1 in num_set:
-                curr += 1
-                length += 1
-            max_len = max(max_len, length)
-
-    return max_len
-    # ══════════════════════════════════════════════
-
-
+    # ═══════════════════════════════════════════════
+    pass
+    # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestLongestConsecutive(unittest.TestCase):
 
