@@ -41,9 +41,25 @@ def level_order(root: TreeNode) -> list[list[int]]:
     关键点：如何区分"当前层"和"下一层"？
             什么数据结构天然适合 BFS？
     """
-
     # ═══════════════════════════════════════════════
-    pass
+    if not root:
+        return []
+    ret = []
+    queue = []
+    queue.append(root)
+    level = []
+    while queue:
+        level = []
+        for _ in range(len(queue)):
+            tmp = queue.pop(0)
+            if tmp.left:
+                queue.append(tmp.left)
+            if tmp.right:
+                queue.append(tmp.right)
+            level.append(tmp.val)     
+        ret.append(level)
+    return ret            
+
     # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 def build_tree(values: list) -> TreeNode:
