@@ -34,7 +34,19 @@ def longest_consecutive(nums: list[int]) -> int:
     这样保证每个序列只从起点遍历一次，总体 O(n)
     """
     # ═══════════════════════════════════════════════
-    pass
+    record = set()
+    for i in nums:
+        record.add(i)
+    ret = 0
+    for i in range(len(nums)):
+        if (nums[i] -1 ) not in record:
+            tmp = nums[i]
+            cnt = 0
+            while tmp in record:
+                cnt += 1
+                tmp += 1
+            ret = max(cnt, ret)
+    return ret
     # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestLongestConsecutive(unittest.TestCase):

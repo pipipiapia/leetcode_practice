@@ -98,22 +98,37 @@ s[::-1]               # 反转字符串
 ```python
 d = {'a': 1}
 
+# ── 增删改查 ──
+d['b'] = 2             # 添加/修改
 d.get('b', 0)         # 0，key不存在返回默认值（不报错）
-d['b']                # KeyError！key不存在会报错
+d['b']                # 2，key不存在会 KeyError！
+d.pop('b')            # 删除并返回值，不存在会 KeyError
+d.pop('b', None)      # 删除并返回值，不存在返回 None
+del d['b']            # 删除，不返回值
+'b' in d              # True，O(1) 查key是否存在
+len(d)                # 键值对个数
+d.clear()             # 清空
 
-# 面试高频：计数
+# ── 遍历 ──
+d.keys()              # 所有key的视图
+d.values()            # 所有value的视图
+d.items()             # 所有(key, value)的视图
+for k, v in d.items():
+    pass
+
+# ── 面试高频：计数 ──
 from collections import Counter
 cnt = Counter("ababc")    # Counter({'a':2,'b':2,'c':1})
 cnt['a']                   # 2
 cnt.most_common(2)         # [('a',2),('b',2)]
 
-# 面试高频：默认值字典
+# ── 面试高频：默认值字典 ──
 from collections import defaultdict
 d = defaultdict(int)       # 不存在的key默认0
 d = defaultdict(list)      # 不存在的key默认[]
 d['a'].append(1)           # 不用判空直接append
 
-# 面试高频：setdefault
+# ── 面试高频：setdefault ──
 d = {}
 d.setdefault('a', []).append(1)  # 和defaultdict(list)效果一样
 ```
@@ -126,11 +141,18 @@ s.add(1)               # 添加
 1 in s                 # True，O(1)查找
 s.remove(1)            # 删除，不存在会KeyError
 s.discard(1)           # 删除，不存在不报错
+s.pop()                # 随机弹出一个元素
+s.clear()              # 清空
+len(s)                 # 元素个数
+
+# 从列表直接建集合（去重）
+s = set(nums)          # list → set，去重 + O(1)查重
 
 # 集合运算
 a & b                  # 交集
 a | b                  # 并集
-a - b                  # 差集
+a - b                  # 差集（a有b没有）
+a ^ b                  # 对称差集（a或b有，但不同时有）
 ```
 
 ## 7. 双端队列 deque
