@@ -41,7 +41,18 @@ def merge_two_lists(l1: ListNode, l2: ListNode) -> ListNode:
     """
 
     # ═══════════════════════════════════════════════
-    pass
+    dummy = ListNode()
+    p = dummy
+    while l1 and l2:
+        if l1.val >= l2.val:
+            p.next = l2
+            l2 = l2.next
+        else:
+            p.next = l1
+            l1 = l1.next
+        p = p.next
+    p.next = l1 if l1 else l2 ### 注意这里掉了！！！
+    return dummy.next
     # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 def build_list(values: list[int]) -> ListNode:
@@ -71,7 +82,7 @@ class TestMergeTwoLists(unittest.TestCase):
         self.assertEqual(to_list(merge_two_lists(l1, l2)), [1, 1, 2, 3, 4, 4])
 
     def test_one_empty(self):
-        self.assertEqual(to_list(merge_two_lists(None, [0])), [0])
+        self.assertEqual(to_list(merge_two_lists(None, build_list([0]))), [0])
 
     def test_both_empty(self):
         self.assertEqual(to_list(merge_two_lists(None, None)), [])

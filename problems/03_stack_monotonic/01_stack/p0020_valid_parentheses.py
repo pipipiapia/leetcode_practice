@@ -40,7 +40,22 @@ def is_valid(s: str) -> bool:
     """
 
     # ═══════════════════════════════════════════════
-    pass
+    stack = []
+    for i in s:
+        if i in ['(','[','{']:
+            stack.append(i)
+        elif i == ')' and (not stack or stack[-1] != '('):
+                return False
+        elif  i == ']' and (not stack or stack[-1] != '['):
+            return False
+        elif  i == '}'and (not stack or stack[-1] != '{'):
+            return False
+        else:
+            stack.pop() ### 掉了这个逻辑！！！
+    if not stack:
+        return True
+    else:
+        return False
     # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestValidParentheses(unittest.TestCase):
