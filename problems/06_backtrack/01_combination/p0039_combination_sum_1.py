@@ -29,9 +29,34 @@ def combination_sum(candidates: list[int], target: int) -> list[list[int]]:
     - 若 remaining == 0：找到一个合法组合
 
     排序后可以提前剪枝（当 candidates[i] > remaining 时后面都不用看）
+    # 回溯的基本框架
+    def backtrack(路径, 选择列表):
+        if 满足结束条件:
+            记录答案
+            return
+        for 选择 in 选择列表:
+            做选择（路径加入）
+            backtrack(路径, 新选择列表)   # 递归深入
+            撤销选择（路径移除）
+    ！！！注意！！！没有 start 的话，你得到的是排列（有顺序），不是组合（无顺序）。 题目要求的是组合，所以 start 是必须的，不是优化。
     """
-    # ═══════════════════════════════════════════════
-    pass
+    # ═════════════════════════════════════════════
+    ret = []
+    def traceback(candidates, start, target, trace):
+        if target < 0:
+            return 
+        elif target == 0:
+            return ret.append(trace[:])
+            ####   ret.append(trace[:])        # 存拷贝
+        else:
+            for i in range(start, len(candidates)):
+                trace.append(candidates[i])
+                traceback(candidates, i, target-candidates[i], trace)
+                trace.pop(-1)
+        
+    traceback(candidates, 0, target, [])
+    return ret
+    
     # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestCombinationSum(unittest.TestCase):

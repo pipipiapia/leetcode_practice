@@ -15,6 +15,7 @@ https://leetcode.com/problems/word-break/
 Tags: 动态规划 | 字符串 | 哈希表
 """
 
+from types import TracebackType
 import unittest
 
 
@@ -28,10 +29,21 @@ def word_break(s: str, wordDict: list[str]) -> bool:
     初始化：dp[0] = True（空字符串）
 
     优化：将 wordDict 转为 set，查询 O(1)
+
+    ！！注意！！！！不管切片怎么写，第一个词永远需要一个"空前缀"的状态来启动，所以dp长度要是n+1且dp0=True
     """
     # ═══════════════════════════════════════════════
-    pass
-    # ═══════════════════════════════════════════════
+    n = len(s)
+    dp = [False]*(n+1)
+    record = set(wordDict)
+    dp[0] = True
+    for i in range(1, n+1):
+        for j in range(i):
+            if dp[j] and s[j: i] in record:
+                dp[i] = True
+                break
+    return dp[n]
+            
 # ─────────────────────────────────────────────────
 class TestWordBreak(unittest.TestCase):
 

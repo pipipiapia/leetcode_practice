@@ -25,9 +25,32 @@ def subsets(nums: list[int]) -> list[list[int]]:
     - 每一层决定是否选当前元素
     - 每次递归时都将当前 path 加入结果（不像组合，每个节点都是合法子集）
     - 从 start 开始，避免重复
+                            []
+                    /    |    \
+                    选1    选2    选3
+                    /       |       \
+                [1]       [2]       [3]
+            /   \        |
+            选2    选3     选3
+            /       \       |
+        [1,2]     [1,3]   [2,3]
+        |
+        选3
+        |
+    [1,2,3]
+    顺序无关 → start（不回头选）
+    顺序有关 → used（可以回头选，但不能重复用同一个元素）
     """
     # ═══════════════════════════════════════════════
-    pass
+    ret = []
+    def traceback(start, nums, path):
+        ret.append(path[:])
+        for i in range(start, len(nums)):
+            path.append(nums[i])
+            traceback(i + 1, nums, path)
+            path.pop()
+    traceback(0, nums, [])
+    return ret
     # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestSubsets(unittest.TestCase):

@@ -32,7 +32,29 @@ def permute(nums: list[int]) -> list[list[int]]:
     """
 
     # ═══════════════════════════════════════════════
-    pass
+    ret = []
+    def traceback(nums, path, used):
+        m = 0
+        if used:
+            m = len(used)
+        n = len(nums)
+        if m ==  n:
+            ret.append(path[:])
+            return 
+        elif m > n:
+            return
+        else:
+            for i in nums:
+                if used and i in used:
+                    continue
+                path.append(i)
+                used.append(i)
+                traceback(nums, path, used)
+                path.pop(-1)
+                used.pop(-1)
+    traceback(nums, [], [])
+    return ret
+
     # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestPermute(unittest.TestCase):

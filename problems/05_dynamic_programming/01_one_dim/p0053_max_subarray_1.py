@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+
 LC 53. 最大子数组和
 https://leetcode.com/problems/maximum-subarray/
 
@@ -39,7 +40,14 @@ def max_subarray(nums: list[int]) -> int:
     """
 
     # ═══════════════════════════════════════════════
-    pass
+    dp = [0]*len(nums) ## dp[i]表示以nums[i]结尾的最大连续子序列的最大和
+    dp[0] = nums[0]
+    for i in range(1, len(nums)):
+        dp[i] = max(nums[i], dp[i-1]+nums[i])
+    return max(dp)
+        
+
+
     # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestMaxSubarray(unittest.TestCase):

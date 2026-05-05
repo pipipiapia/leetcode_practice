@@ -41,7 +41,14 @@ def max_profit(prices: list[int]) -> int:
     """
 
     # ═══════════════════════════════════════════════
-    pass
+    n = len(prices)
+    dp = [0] * n ## dp[i]表示以prices[i]时卖出
+    dp[0] = 0
+    pre_min = prices[0]
+    for i in range(1, n):
+        dp[i] = max(0, prices[i]-pre_min)
+        pre_min = min(pre_min, prices[i])
+    return max(dp)
     # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestBestTimeStock(unittest.TestCase):
