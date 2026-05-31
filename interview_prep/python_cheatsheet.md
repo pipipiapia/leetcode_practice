@@ -356,7 +356,106 @@ reversed(lst)              # 返回迭代器
 sorted(lst)                # 返回新列表
 ```
 
-## 18. 面试易错陷阱
+## 18. 拷贝：浅拷贝 vs 深拷贝
+
+```python
+import copy
+
+a = [[1, 2], [3, 4]]
+
+# ── 引用赋值（不是拷贝）──
+b = a                    # b 和 a 指向同一个列表，改 b 就改 a
+
+# ── 浅拷贝（外层新，内层共享）──
+b = a.copy()             # 方法一
+b = a[:]                 # 方法二（切片）
+b = list(a)              # 方法三
+b = copy.copy(a)         # 方法四
+# 上面四种等价：a 和 b 是不同列表，但里面的 [1,2]/[3,4] 是同一个引用
+b.append([5, 6])         # 不影响 a
+b[0][0] = 99             # a[0][0] 也变成 99！
+
+# ── 深拷贝（递归全新）──
+b = copy.deepcopy(a)     # 完全独立，改 b 不影响 a 的任何层
+b[0][0] = 99             # a 不变
+
+# ── 一维列表特殊情况 ──
+# 元素是不可变类型（int/str/tuple）时，浅拷贝就够了，不需要 deepcopy
+a = [1, 2, 3]
+b = a[:]                 # 完全够用，改 b 不影响 a
+
+# ── 回溯题为什么要 path[:] ──
+res.append(path)         # 错误！存的是引用，path 后面被修改 res 也跟着变
+res.append(path[:])      # 正确：浅拷贝，把当前快照存下来
+# path 装的是 int/str 等不可变值，浅拷贝够用
+# 如果 path 装的是 list，要用 copy.deepcopy(path)
+
+# ── dict 的拷贝 ──
+d2 = d.copy()            # 浅拷贝
+d2 = copy.deepcopy(d)    # 深拷贝（嵌套dict/list时用）
+```
+
+**记忆口诀**：
+- `=` 赋值：贴标签
+- `.copy() / [:] / list()`：复印外壳，内容共用
+- `copy.deepcopy()`：连内容也完整复印一份
+
+---
+
+## 19. Python 特殊方法（dunder methods）
+
+```python
+# __init__ 是构造函数（不是析构函数！），对象创建时自动调用
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val          # 初始化属性
+        self.left = left
+        self.right = right
+
+node = TreeNode(5)              # 自动调用 __init__
+
+# __del__ 是析构函数，对象被垃圾回收时调用（几乎不用）
+class Foo:
+    def __del__(self):
+        pass   # Python有GC，内存自动管理，不需要手动析构
+
+# ── 刷题常用的 dunder 方法 ──
+
+# __str__：print(obj) 时显示什么
+class Node:
+    def __str__(self):
+        return f"Node({self.val})"
+
+# __len__：让 len(obj) 有效
+class MyStack:
+    def __len__(self):
+        return len(self._data)
+
+# __eq__：自定义 == 比较
+class Interval:
+    def __eq__(self, other):
+        return self.start == other.start and self.end == other.end
+
+# __lt__：自定义 < 比较（堆排序时常用！）
+class Task:
+    def __lt__(self, other):
+        return self.priority < other.priority  # 小顶堆按 priority 排
+
+# heapq 遇到自定义对象时会用 __lt__：
+import heapq
+tasks = [Task(3), Task(1), Task(2)]
+heapq.heapify(tasks)   # 需要 __lt__ 才能比较
+
+# ── 记忆口诀 ──
+# init  = 初始化 (constructor)
+# del   = 销毁   (destructor，几乎不用)
+# str   = 字符串显示
+# len   = 长度
+# eq    = ==
+# lt    = <（堆/排序时用）
+```
+
+## 20. 面试易错陷阱
 
 ```python
 # 1. list的*复制是浅拷贝

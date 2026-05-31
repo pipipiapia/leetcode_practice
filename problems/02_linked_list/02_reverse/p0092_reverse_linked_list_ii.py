@@ -33,6 +33,8 @@ def reverse_between(head: Optional[ListNode], left: int, right: int) -> Optional
     1. 找到 left 前一个节点 pre（用 dummy 哨兵简化边界）
     2. curr 指向 left 节点
     3. 反复将 curr.next 插到 pre.next（头插到 pre 后面）
+
+    
        重复 right - left 次
 
     示意（left=2, right=4）：

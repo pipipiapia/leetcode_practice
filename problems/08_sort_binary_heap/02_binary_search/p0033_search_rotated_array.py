@@ -1,3 +1,5 @@
+
+
 #!/usr/bin/env python3
 """
 LC 33. 搜索旋转排序数组
@@ -15,6 +17,7 @@ https://leetcode.com/problems/search-in-rotated-sorted-array/
 Tags: 数组 | 二分查找
 """
 
+from errno import EFTYPE
 import unittest
 
 
@@ -31,7 +34,31 @@ def search(nums: list[int], target: int) -> int:
         - 否则 right = mid - 1
     """
     # ═══════════════════════════════════════════════
-    pass
+    def binary_search(nums, left, right, target):
+        if left > right:
+            return -1
+        if left == right:
+            if target == nums[left]:
+                return left
+            else:
+                return -1
+        mid = int((right-left)/2) + left
+        if nums[mid] > nums[left]:
+            if target >=nums[left] and target <= nums[mid]:
+                for i in nums[left: mid]:
+                    if nums[i] == target:
+                        return i
+            else:
+                return binary_search(nums, mid+1, right, target)
+        else:
+            if target <= nums[right] and target >= nums[mid]:
+                for i in nums[mid: right+1]:
+                    if nums[i] == target:
+                        return i
+                else:
+                    return binary_search(nums, left, mid -1, target)
+
+            
     # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestSearch(unittest.TestCase):

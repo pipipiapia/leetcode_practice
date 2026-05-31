@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 """
 LC 79. 单词搜索
@@ -29,9 +30,35 @@ def exist(board: list[list[str]], word: str) -> bool:
     - 每次向 4 个方向扩展，匹配 word 的下一个字符
     - 已访问的格子临时标记为 '#'，回溯时恢复
     - 越界、不匹配、已访问 → 剪枝返回 False
+
+    !!!! 一定要标记走过的节点，避免出现回头路
     """
     # ═══════════════════════════════════════════════
-    pass
+    m, n = len(board), len(board[0])
+    w = len(word)
+    k = 0
+    def dfs(i,j,k):
+
+        if k == w:
+            return True
+        if i <0 or j<0 or i >= m or j >= n:
+            return False
+
+        tmp = board[i][j]
+        if board[i][j] != word[k]:
+            return False
+        else:
+            board[i][j] = '$'
+            found = (dfs(i-1, j, k+1)) or (dfs(i,j-1,k+1)) or (dfs(i+1,j, k+1)) or (dfs(i,j+1,k+1))
+            board[i][j] = tmp
+            return found
+
+    for i in range(m):
+        for j in range(n):
+            if dfs(i, j, k):
+                return True
+    return False
+    
     # ═══════════════════════════════════════════════
 # ─────────────────────────────────────────────────
 class TestExist(unittest.TestCase):
